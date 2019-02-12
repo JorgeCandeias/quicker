@@ -1,2 +1,2 @@
-# quicker
-Library of efficient algorithms for various tasks.
+# Quicker
+Library of easy-to-use efficient algorithms to assist development of high-performance code.

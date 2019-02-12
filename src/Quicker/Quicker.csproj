@@ -1,10 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.1.0</Version>
-    <Description>Library of efficient algorithms for various uses.</Description>
+    <Description>Library of easy-to-use efficient algorithms to assist development of high-performance code.</Description>
     <PackageLicenseUrl>https://github.com/JorgeCandeias/quicker/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/JorgeCandeias/quicker</PackageProjectUrl>
     <RepositoryUrl>https://github.com/JorgeCandeias/quicker</RepositoryUrl>
