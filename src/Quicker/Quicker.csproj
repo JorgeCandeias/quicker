@@ -11,6 +11,7 @@
     <PackageTags>algorithms</PackageTags>
     <Copyright>MIT</Copyright>
     <Authors>Jorge Candeias</Authors>
+    <PackageIconUrl>https://github.com/JorgeCandeias/quicker/blob/master/favicon.ico</PackageIconUrl>
   </PropertyGroup>
 
 </Project>
