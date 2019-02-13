@@ -54,6 +54,55 @@ namespace Quicker
         /// </summary>
         /// <param name="value">The number.</param>
         /// <returns></returns>
+        public static int BinaryGapMaxLengthSimple(this int value, BinaryGapBit bit = BinaryGapBit.Unset)
+        {
+            // trackers
+            int max_gap = 0;
+            int gap = 0;
+            char mask = bit == BinaryGapBit.Unset ? '1' : '0';
+
+            // convert the value to a binary string
+            var binary = Convert.ToString(value, 2);
+
+            // iterate until the first set bit
+            int i = 0;
+            while (i < binary.Length && binary[i] != mask)
+            {
+                ++i;
+            }
+
+            // we are either at the first set bit or have run out of bits
+            for (; i < binary.Length; ++i)
+            {
+                // check if the current bit is set
+                if (binary[i] == mask)
+                {
+                    // check if the current gap is greater than the max candidate
+                    if (gap > max_gap)
+                    {
+                        // promote the current gap count to max candidate
+                        max_gap = gap;
+                    }
+
+                    // close the running gap count
+                    gap = 0;
+                }
+                else
+                {
+                    // if zero then increase the running gap count
+                    ++gap;
+                }
+            }
+
+            // at this point we have the greatest gap length or zero
+            return max_gap;
+        }
+
+        /// <summary>
+        /// Finds the length of the maximum binary gap in the given number by using an efficient algorithm.
+        /// </summary>
+        /// <param name="value">The number.</param>
+        /// <returns></returns>
         public static int BinaryGapMaxLengthEfficient(this int value, BinaryGapBit bit = BinaryGapBit.Unset)
         {
             // trackers
