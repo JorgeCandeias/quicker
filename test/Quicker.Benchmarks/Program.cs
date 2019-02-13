@@ -1,4 +1,5 @@
-﻿using BenchmarkDotNet.Running;
+﻿using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Running;
 using System;
 
 namespace Quicker.Benchmarks
@@ -7,9 +8,18 @@ namespace Quicker.Benchmarks
     {
         static void Main(string[] args)
         {
-            BenchmarkSwitcher
+            var summaries = BenchmarkSwitcher
                 .FromAssembly(typeof(Program).Assembly)
-                .Run(args);
+                .Run(args, new DebugBuildConfig());
+
+            foreach (var summary in summaries)
+            {
+                foreach (var benchmarkCase in summary.BenchmarksCases)
+                {
+                    var method = benchmarkCase.Descriptor.WorkloadMethodDisplayInfo;
+                    var stats = summary[benchmarkCase].ResultStatistics;
+                }
+            }
 
             Console.ReadLine();
         }

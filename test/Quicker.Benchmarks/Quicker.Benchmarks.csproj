@@ -13,4 +13,10 @@
     <ProjectReference Include="..\..\src\Quicker\Quicker.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Benchmarks.pbix">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

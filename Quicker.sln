@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quicker", "src\Quicker\Quicker.csproj", "{EF78CE99-04E9-4204-A0E4-3C23EF51A0EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quicker", "src\Quicker\Quicker.csproj", "{EF78CE99-04E9-4204-A0E4-3C23EF51A0EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quicker.Tests", "test\Quicker.Tests\Quicker.Tests.csproj", "{4FC070E4-8C8F-47B0-8127-2618858E0E7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quicker.Tests", "test\Quicker.Tests\Quicker.Tests.csproj", "{4FC070E4-8C8F-47B0-8127-2618858E0E7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quicker.Benchmarks", "test\Quicker.Benchmarks\Quicker.Benchmarks.csproj", "{242153D9-778E-450D-AF55-BEB9D8B87D9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quicker.Benchmarks", "test\Quicker.Benchmarks\Quicker.Benchmarks.csproj", "{242153D9-778E-450D-AF55-BEB9D8B87D9C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D54D49E2-2B42-46B0-8554-BE8DBA207E9D}"
 	ProjectSection(SolutionItems) = preProject
 		favicon.ico = favicon.ico
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{9BC15E22-4CCD-47E1-B411-AA7D543B5948}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,12 @@ Global
 		{242153D9-778E-450D-AF55-BEB9D8B87D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{242153D9-778E-450D-AF55-BEB9D8B87D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{242153D9-778E-450D-AF55-BEB9D8B87D9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC15E22-4CCD-47E1-B411-AA7D543B5948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC15E22-4CCD-47E1-B411-AA7D543B5948}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC15E22-4CCD-47E1-B411-AA7D543B5948}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9BC15E22-4CCD-47E1-B411-AA7D543B5948}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC15E22-4CCD-47E1-B411-AA7D543B5948}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC15E22-4CCD-47E1-B411-AA7D543B5948}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,7 +2,7 @@
 
 namespace Quicker.Benchmarks
 {
-    [AsciiDocExporter, RPlotExporter]
+    [AsciiDocExporter]
     public class BinaryGapBenchmarks
     {
         [Benchmark(Baseline = true)]
