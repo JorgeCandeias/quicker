@@ -5,15 +5,15 @@ namespace Quicker
     public enum BinaryGapMethod
     {
         /// <summary>
-        /// Use an efficient approach.
+        /// Use an efficient approach of shifting the value and applying a mask.
         /// </summary>
-        Efficient = 0,
+        Shift = 0,
 
         /// <summary>
-        /// Use a simple approach.
-        /// Useful for performance comparison only.
+        /// Use a simple approach of iterating individual bits in the int via its string representation.
+        /// Useful for performance baselining only.
         /// </summary>
-        Simple = -1
+        Iterate = -1
     }
 
     public enum BinaryGapBit
@@ -35,14 +35,17 @@ namespace Quicker
         /// Finds the length of the maximum binary bag in the given number by using the given method.
         /// </summary>
         /// <param name="value">The number.</param>
-        /// <param name="method">The algorithm method. Defaults to <see cref="BinaryGapMethod.Efficient"/></param>
+        /// <param name="method">The algorithm method. Defaults to <see cref="BinaryGapMethod.Shift"/></param>
         /// <returns>The length of the maximum binary gap or zero if there is none.</returns>
-        public static int BinaryGapMaxLength(this int value, BinaryGapMethod method = BinaryGapMethod.Efficient, BinaryGapBit gapBit = BinaryGapBit.Unset)
+        public static int BinaryGapMaxLength(this int value, BinaryGapMethod method = BinaryGapMethod.Shift, BinaryGapBit gapBit = BinaryGapBit.Unset)
         {
             switch (method)
             {
-                case BinaryGapMethod.Efficient:
-                    return BinaryGapMaxLengthEfficient(value);
+                case BinaryGapMethod.Shift:
+                    return BinaryGapMaxLengthByShifting(value);
+
+                case BinaryGapMethod.Iterate:
+                    return BinaryGapMaxLengthByIterating(value);
 
                 default:
                     throw new ArgumentException(nameof(method));
@@ -54,7 +57,7 @@ namespace Quicker
         /// </summary>
         /// <param name="value">The number.</param>
         /// <returns></returns>
-        public static int BinaryGapMaxLengthSimple(this int value, BinaryGapBit bit = BinaryGapBit.Unset)
+        public static int BinaryGapMaxLengthByIterating(this int value, BinaryGapBit bit = BinaryGapBit.Unset)
         {
             // trackers
             int max_gap = 0;
@@ -103,7 +106,7 @@ namespace Quicker
         /// </summary>
         /// <param name="value">The number.</param>
         /// <returns></returns>
-        public static int BinaryGapMaxLengthEfficient(this int value, BinaryGapBit bit = BinaryGapBit.Unset)
+        public static int BinaryGapMaxLengthByShifting(this int value, BinaryGapBit bit = BinaryGapBit.Unset)
         {
             // trackers
             int max_gap = 0;
@@ -117,10 +120,14 @@ namespace Quicker
             }
 
             // shift until the first set bit
-            while (mask != 0 && (mask & value) == 0)
+            while ((mask & value) == 0 && mask != 0)
             {
                 mask <<= 1;
             }
+
+            // shift one more time to skip it
+            // this avoid a duplicate comparison on the next step
+            mask <<= 1;
 
             // we are either at the first set bit or have run out of bits
             for (; mask != 0; mask <<= 1)

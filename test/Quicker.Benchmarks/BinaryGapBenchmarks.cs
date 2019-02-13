@@ -2,12 +2,19 @@
 
 namespace Quicker.Benchmarks
 {
+    [AsciiDocExporter, RPlotExporter]
     public class BinaryGapBenchmarks
     {
-        [Benchmark]
-        public int BinaryGapMaxLength()
+        [Benchmark(Baseline = true)]
+        public int BinaryGapMaxLengthByIterating()
         {
-            return 1234567890.BinaryGapMaxLength(BinaryGapMethod.Efficient, BinaryGapBit.Unset);
+            return 0b1011_0111_0111_1011_1110_1111_110_1111.BinaryGapMaxLengthByIterating(BinaryGapBit.Unset);
+        }
+
+        [Benchmark]
+        public int BinaryGapMaxLengthByShifting()
+        {
+            return 0b1011_0111_0111_1011_1110_1111_110_1111.BinaryGapMaxLengthByShifting(BinaryGapBit.Unset);
         }
     }
 }

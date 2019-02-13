@@ -38,10 +38,10 @@ namespace Quicker.Tests
         [TestCase(unchecked((int)0b1111_0000_0000_1111_0000_1111_0000_1111), BinaryGapBit.Set, 4)]
         [TestCase(unchecked((int)0b1111_0100_1000_1000_0100_0001_0011_1111), BinaryGapBit.Set, 1)]
         [TestCase(unchecked((int)0b1011_0111_0111_1011_1110_1111_110_1111), BinaryGapBit.Set, 6)]
-        public void BinaryGapMaxLengthEfficient_Returns_Expected_Result(int value, BinaryGapBit bit, int expected)
+        public void BinaryGapMaxLengthByShifting_Returns_Expected_Result(int value, BinaryGapBit bit, int expected)
         {
             // act
-            int actual = value.BinaryGapMaxLengthEfficient(bit);
+            int actual = value.BinaryGapMaxLengthByShifting(bit);
 
             // assert
             Assert.AreEqual(expected, actual);
@@ -62,7 +62,7 @@ namespace Quicker.Tests
         [TestCase(unchecked((int)0b1111_0000_1111_0000_1111_0000_0000_1111), BinaryGapBit.Unset, 8)]
         [TestCase(unchecked((int)0b1111_0000_0000_1111_0000_1111_0000_1111), BinaryGapBit.Unset, 8)]
         [TestCase(unchecked((int)0b1111_0100_1000_1000_0100_0001_0011_1111), BinaryGapBit.Unset, 5)]
-        [TestCase(unchecked((int)0b1011_0111_0111_1011_1110_1111_110_1111), BinaryGapBit.Unset, 1)]
+        [TestCase(0b1011_0111_0111_1011_1110_1111_110_1111, BinaryGapBit.Unset, 1)]
 
         // test cases for set bit gap
         [TestCase(0b0000_0000_0000_0000_0000_0000_0000_0000, BinaryGapBit.Set, 0)]
@@ -79,11 +79,11 @@ namespace Quicker.Tests
         [TestCase(unchecked((int)0b1111_0000_1111_0000_1111_0000_0000_1111), BinaryGapBit.Set, 4)]
         [TestCase(unchecked((int)0b1111_0000_0000_1111_0000_1111_0000_1111), BinaryGapBit.Set, 4)]
         [TestCase(unchecked((int)0b1111_0100_1000_1000_0100_0001_0011_1111), BinaryGapBit.Set, 1)]
-        [TestCase(unchecked((int)0b1011_0111_0111_1011_1110_1111_110_1111), BinaryGapBit.Set, 6)]
-        public void BinaryGapMaxLengthSimple_Returns_Expected_Result(int value, BinaryGapBit bit, int expected)
+        [TestCase(0b1011_0111_0111_1011_1110_1111_110_1111, BinaryGapBit.Set, 6)]
+        public void BinaryGapMaxLengthByIterating_Returns_Expected_Result(int value, BinaryGapBit bit, int expected)
         {
             // act
-            int actual = value.BinaryGapMaxLengthSimple(bit);
+            int actual = value.BinaryGapMaxLengthByIterating(bit);
 
             // assert
             Assert.AreEqual(expected, actual);
