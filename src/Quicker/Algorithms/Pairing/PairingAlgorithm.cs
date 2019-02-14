@@ -1,23 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Quicker.Algorithms.Pairing
 {
     public class PairingAlgorithm
     {
-        public static int? FindOddOneOutByIterating(IEnumerable<int> values)
+        public static int? FindOddOneOutByIterating(int[] values)
         {
-            // convert to array to avoid iterating the enumerable twice
-            var array = values.ToArray();
-
             // check each item in the array
-            foreach (int value in array)
+            for (var i = 0; i < values.Length; ++i)
             {
                 // count the number of times this value shows in the array
                 int count = 0;
-                foreach (int other in array)
+                for (int j = 0; j < values.Length; ++j)
                 {
-                    if (other == value)
+                    if (values[i] == values[j])
                     {
                         ++count;
                     }
@@ -26,7 +24,7 @@ namespace Quicker.Algorithms.Pairing
                 // check if it appears an odd number of times
                 if (count % 2 != 0)
                 {
-                    return value;
+                    return values[i];
                 }
             }
 
@@ -34,33 +32,33 @@ namespace Quicker.Algorithms.Pairing
             return null;
         }
 
-        public static int? FindFirstOddOneOutByHashing(IEnumerable<int> values)
+        public static int? FindOddOneOutByHashing(int[] values)
         {
             // prepare a lookup for on-the-go checks
-            var found = new HashSet<int>();
+            var candidates = new HashSet<int>();
 
             // check each item in the enumeration
-            foreach (int value in values)
+            for (int i = 0; i < values.Length; ++i)
             {
                 // check if we have found this value once before
-                if (found.Contains(value))
+                if (candidates.Contains(values[i]))
                 {
                     // if yes then it is no longer a candidate for odd occurrences
-                    found.Remove(value);
+                    candidates.Remove(values[i]);
                 }
                 else
                 {
                     // if not then it is either the first time it appears in the enumeration
                     // or all previous appearances have found a pair
                     // in that case we add it to the lookup as a new candidate for odd occurences
-                    found.Add(value);
+                    candidates.Add(values[i]);
                 }
             }
 
             // check if any candidate survived
-            if (found.Count > 0)
+            if (candidates.Count > 0)
             {
-                return found.First();
+                return candidates.First();
             }
             else
             {

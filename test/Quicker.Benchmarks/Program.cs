@@ -1,5 +1,4 @@
-﻿using BenchmarkDotNet.Configs;
-using BenchmarkDotNet.Running;
+﻿using BenchmarkDotNet.Running;
 using System;
 
 namespace Quicker.Benchmarks
@@ -10,7 +9,7 @@ namespace Quicker.Benchmarks
         {
             var summaries = BenchmarkSwitcher
                 .FromAssembly(typeof(Program).Assembly)
-                .Run(args, new DebugBuildConfig());
+                .Run(args);
 
             foreach (var summary in summaries)
             {
