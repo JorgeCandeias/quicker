@@ -1,4 +1,4 @@
-﻿namespace Quicker.Algorithms
+﻿namespace Quicker.Algorithms.BinaryGap
 {
     /// <summary>
     /// Whether to search for unset (zero) or set (one) binary gaps.

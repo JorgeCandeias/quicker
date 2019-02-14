@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Quicker.Algorithms
+namespace Quicker.Algorithms.BinaryGap
 {
     public static class BinaryGapAlgorithm
     {

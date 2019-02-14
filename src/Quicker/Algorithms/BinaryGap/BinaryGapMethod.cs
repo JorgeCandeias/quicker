@@ -1,4 +1,4 @@
-﻿namespace Quicker.Algorithms
+﻿namespace Quicker.Algorithms.BinaryGap
 {
     /// <summary>
     /// Defines what method to use for the binary gap algorithm.

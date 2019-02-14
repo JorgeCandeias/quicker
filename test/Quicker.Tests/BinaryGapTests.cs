@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using Quicker.Algorithms;
+using Quicker.Algorithms.BinaryGap;
 
 namespace Quicker.Tests
 {

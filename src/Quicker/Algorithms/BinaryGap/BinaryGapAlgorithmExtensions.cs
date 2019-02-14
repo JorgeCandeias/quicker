@@ -1,7 +1,6 @@
-﻿using Quicker.Algorithms;
-using System;
+﻿using System;
 
-namespace Quicker
+namespace Quicker.Algorithms.BinaryGap
 {
     /// <summary>
     /// Helper extensions to faciliate fluent code.

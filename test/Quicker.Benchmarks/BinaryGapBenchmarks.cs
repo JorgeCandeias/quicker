@@ -1,5 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
-using Quicker.Algorithms;
+using Quicker.Algorithms.BinaryGap;
 
 namespace Quicker.Benchmarks
 {
