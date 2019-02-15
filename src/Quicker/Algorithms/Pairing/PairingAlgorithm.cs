@@ -34,11 +34,19 @@ namespace Quicker.Algorithms.Pairing
 
         public static int? FindOddOneOutByOrdering(int[] values)
         {
+            // we need at least one item for this algorithm to make sense
             int count = 0;
             int? last_value = null;
-            foreach (int value in values.OrderBy(x => x))
+
+            // copy and sort the array
+            var sorted = new int[values.Length];
+            Array.Copy(values, sorted, values.Length);
+            Array.Sort(sorted);
+
+            // look for odd occurrences of a value until we find one
+            for (int i = 0; i < sorted.Length; ++i)
             {
-                if (value == last_value)
+                if (sorted[i] == last_value)
                 {
                     ++count;
                 }
@@ -46,12 +54,18 @@ namespace Quicker.Algorithms.Pairing
                 {
                     if (count % 2 != 0)
                     {
-                        return value;
+                        return sorted[i];
                     }
-                    last_value = value;
+                    else
+                    {
+                        count = 1;
+                        last_value = sorted[i];
+                    }
                 }
             }
-            return null;
+
+            // extra check for the last value
+            return (count % 2 != 0 ? last_value : null);
         }
 
         public static int? FindOddOneOutByHashing(int[] values)
