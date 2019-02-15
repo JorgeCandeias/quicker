@@ -9,7 +9,7 @@ namespace Quicker.Algorithms.Pairing
         public static int? FindOddOneOutByIterating(int[] values)
         {
             // check each item in the array
-            for (var i = 0; i < values.Length; ++i)
+            for (int i = 0; i < values.Length; ++i)
             {
                 // count the number of times this value shows in the array
                 int count = 0;
@@ -29,6 +29,28 @@ namespace Quicker.Algorithms.Pairing
             }
 
             // we did not find an unpaired item
+            return null;
+        }
+
+        public static int? FindOddOneOutByOrdering(int[] values)
+        {
+            int count = 0;
+            int? last_value = null;
+            foreach (int value in values.OrderBy(x => x))
+            {
+                if (value == last_value)
+                {
+                    ++count;
+                }
+                else
+                {
+                    if (count % 2 != 0)
+                    {
+                        return value;
+                    }
+                    last_value = value;
+                }
+            }
             return null;
         }
 
