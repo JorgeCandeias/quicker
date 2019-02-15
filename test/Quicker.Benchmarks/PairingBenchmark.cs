@@ -11,7 +11,7 @@ namespace Quicker.Benchmarks
         /// </summary>
         public class PairingBenchmarksWorstCase
         {
-            [Params(1, 11, 101, 1001, 10001)]
+            [Params(1, 11, 101, 1001, 10001, 100001)]
             public int N { get; set; }
 
             [GlobalSetup]
@@ -41,7 +41,7 @@ namespace Quicker.Benchmarks
         /// </summary>
         public class PairingBenchmarksBestCase
         {
-            [Params(1, 11, 101, 1001, 10001)]
+            [Params(1, 11, 101, 1001, 10001, 100001)]
             public int N { get; set; }
 
             [GlobalSetup]

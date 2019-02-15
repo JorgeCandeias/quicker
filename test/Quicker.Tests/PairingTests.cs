@@ -20,7 +20,7 @@ namespace Quicker.Tests
         [TestCase(new[] { 1, 1, 2, 2, 3 }, 3)]
         [TestCase(new[] { 4, 1, 1, 2, 2, 3, 3 }, 4)]
         [TestCase(new[] { 4, 4, 1, 1, 5, 2, 2, 3, 3 }, 5)]
-        public void FindFirstOddOneOutByHashing_Returns_Expected_Result(int[] values, int? expected)
+        public void FindOddOneOutByHashing_Returns_Expected_Result(int[] values, int? expected)
         {
             Assert.AreEqual(expected, PairingAlgorithm.FindOddOneOutByHashing(values));
         }
