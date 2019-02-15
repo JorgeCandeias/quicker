@@ -8,9 +8,18 @@ namespace Quicker.Algorithms.Pairing
     {
         public static int? FindOddOneOutByIterating(int[] values)
         {
+            // keep track of items already tested
+            var tested = new HashSet<int>();
+
             // check each item in the array
             for (int i = 0; i < values.Length; ++i)
             {
+                // check if we have tested this value already
+                if (tested.Contains(values[i]))
+                {
+                    continue;
+                }
+
                 // count the number of times this value shows in the array
                 int count = 0;
                 for (int j = 0; j < values.Length; ++j)
@@ -26,6 +35,9 @@ namespace Quicker.Algorithms.Pairing
                 {
                     return values[i];
                 }
+
+                // mark this value as tested
+                tested.Add(values[i]);
             }
 
             // we did not find an unpaired item
