@@ -1,7 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Columns;
-using BenchmarkDotNet.Configs;
-using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Mathematics;
 using Quicker.Algorithms.Pairing;
 using System.Linq;
@@ -14,7 +12,7 @@ namespace Quicker.Benchmarks
         /// In a worst case scenario, the odd value out is at the end of the input.
         /// </summary>
         [RankColumn(NumeralSystem.Stars)]
-        [MarkdownExporterAttribute.GitHub]
+        [MarkdownExporter]
         public class PairingBenchmarksWorstCase
         {
             [Params(1, 11, 101, 1001, 10001, 100001)]
@@ -56,7 +54,7 @@ namespace Quicker.Benchmarks
         /// In a best case scenario, the odd value out is at the beginning of the input.
         /// </summary>
         [RankColumn(NumeralSystem.Stars)]
-        [MarkdownExporterAttribute.GitHub]
+        [MarkdownExporter]
         public class PairingBenchmarksBestCase
         {
             [Params(1, 11, 101, 1001, 10001, 100001)]
