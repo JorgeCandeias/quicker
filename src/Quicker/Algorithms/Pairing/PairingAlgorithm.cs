@@ -6,6 +6,13 @@ namespace Quicker.Algorithms.Pairing
 {
     public class PairingAlgorithm
     {
+        public static int? FindOddOneOutHybrid(int[] values, int orderingThreshold = 10, int hashingThreshold = 10000)
+        {
+            if (values.Length > hashingThreshold) return FindOddOneOutByHashing(values);
+            if (values.Length > orderingThreshold) return FindOddOneOutByOrdering(values);
+            return FindOddOneOutByIterating(values);
+        }
+
         public static int? FindOddOneOutByIterating(int[] values)
         {
             // keep track of items already tested

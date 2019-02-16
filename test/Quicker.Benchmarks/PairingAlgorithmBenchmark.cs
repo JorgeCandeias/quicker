@@ -48,6 +48,12 @@ namespace Quicker.Benchmarks
             {
                 return PairingAlgorithm.FindOddOneOutByHashing(_input);
             }
+
+            [Benchmark]
+            public int? FindOddOneOutHybrid()
+            {
+                return PairingAlgorithm.FindOddOneOutHybrid(_input);
+            }
         }
 
         /// <summary>
@@ -88,6 +94,12 @@ namespace Quicker.Benchmarks
             public int? FindOddOneOutByHashing()
             {
                 return PairingAlgorithm.FindOddOneOutByHashing(_input);
+            }
+
+            [Benchmark]
+            public int? FindOddOneOutHybrid()
+            {
+                return PairingAlgorithm.FindOddOneOutHybrid(_input);
             }
         }
     }
