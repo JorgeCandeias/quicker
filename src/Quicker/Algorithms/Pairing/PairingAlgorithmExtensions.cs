@@ -3,7 +3,7 @@
 namespace Quicker.Algorithms.Pairing
 {
     /// <summary>
-    /// Faciliates use of the <see cref="PairingAlgorithm"/> in Linq expression.
+    /// Faciliates use of the <see cref="PairingAlgorithm"/> in a Linq expression.
     /// </summary>
     public static class PairingAlgorithmExtensions
     {
