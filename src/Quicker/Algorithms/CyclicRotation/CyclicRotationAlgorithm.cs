@@ -44,10 +44,11 @@ namespace Quicker.Algorithms.CyclicRotation
             if (distance < 0) throw new ArgumentOutOfRangeException(nameof(distance));
 
             // rotate
+            var size = Marshal.SizeOf<T>();
             var result = new T[input.Length];
             int diff = distance % input.Length;
-            Buffer.BlockCopy(input, 0, result, diff, input.Length - diff);
-            Buffer.BlockCopy(input, input.Length - diff, result, 0, diff);
+            Buffer.BlockCopy(input, 0, result, diff * size, (input.Length - diff) * size);
+            Buffer.BlockCopy(input, (input.Length - diff) * size, result, 0, diff * size);
             return result;
         }
 
