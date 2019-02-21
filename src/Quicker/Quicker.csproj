@@ -12,6 +12,15 @@
     <Copyright>MIT</Copyright>
     <Authors>Jorge Candeias</Authors>
     <PackageIconUrl>https://github.com/JorgeCandeias/quicker/blob/master/favicon.ico</PackageIconUrl>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Memory" Version="4.5.2" />
+  </ItemGroup>
 
 </Project>
