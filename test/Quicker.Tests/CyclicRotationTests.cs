@@ -7,9 +7,9 @@ namespace Quicker.Tests
 {
     public class CyclicRotationTests
     {
-        public class T1
+        public class SomeClass
         {
-            public T1(int value)
+            public SomeClass(int value)
             {
                 Value = value;
             }
@@ -37,29 +37,8 @@ namespace Quicker.Tests
             }
         }
 
-        public class ReferenceTestData : TheoryData<T1[], int, T1[]>
-        {
-            public ReferenceTestData()
-            {
-                Add(new T1[] { new T1(0) }, 0, new T1[] { 0 });
-                Add(new T1[] { 1 }, 0, new T1[] { 1 });
-                Add(new T1[] { 2 }, 0, new T1[] { 2 });
-                Add(new T1[] { 0 }, 1, new T1[] { 0 });
-                Add(new T1[] { 1 }, 1, new T1[] { 1 });
-                Add(new T1[] { 2 }, 1, new T1[] { 2 });
-                Add(new T1[] { 0, 1 }, 1, new T1[] { 1, 0 });
-                Add(new T1[] { 0, 1, 2, 3, 4, 5 }, 1, new T1[] { 5, 0, 1, 2, 3, 4 });
-                Add(new T1[] { 0, 1, 2, 3, 4, 5 }, 2, new T1[] { 4, 5, 0, 1, 2, 3 });
-                Add(new T1[] { 0, 1, 2, 3, 4, 5 }, 3, new T1[] { 3, 4, 5, 0, 1, 2 });
-                Add(new T1[] { 0, 1, 2, 3, 4, 5 }, 4, new T1[] { 2, 3, 4, 5, 0, 1 });
-                Add(new T1[] { 0, 1, 2, 3, 4, 5 }, 5, new T1[] { 1, 2, 3, 4, 5, 0 });
-                Add(new T1[] { 0, 1, 2, 3, 4, 5 }, 6, new T1[] { 0, 1, 2, 3, 4, 5 });
-            }
-        }
-
         [Theory]
         [ClassData(typeof(ValueTestData))]
-        [ClassData(typeof(ReferenceTestData))]
         public void CyclicRotation_RotateByRemainderIndexing_Returns_Expected_Result(int[] input, int distance, int[] expected)
         {
             // act
