@@ -8,9 +8,9 @@ namespace Quicker.Benchmarks
     [RankColumn(NumeralSystem.Stars)]
     [MarkdownExporter]
     [MemoryDiagnoser]
-    public class CyclicRotationBenchmark
+    public class CyclicRotationBenchmarks
     {
-        [Params(10, 100, 1000, 10000, 100000, 1000000, 10000000)]
+        [Params(10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000)]
         public int N { get; set; }
 
         [GlobalSetup]
