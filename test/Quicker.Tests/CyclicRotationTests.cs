@@ -21,6 +21,7 @@ namespace Quicker.Tests
         {
             public ValueTestData()
             {
+                Add(new int[0], 1, new int[0]);
                 Add(new int[] { 0 }, 0, new int[] { 0 });
                 Add(new int[] { 1 }, 0, new int[] { 1 });
                 Add(new int[] { 2 }, 0, new int[] { 2 });
@@ -34,6 +35,12 @@ namespace Quicker.Tests
                 Add(new int[] { 0, 1, 2, 3, 4, 5 }, 4, new int[] { 2, 3, 4, 5, 0, 1 });
                 Add(new int[] { 0, 1, 2, 3, 4, 5 }, 5, new int[] { 1, 2, 3, 4, 5, 0 });
                 Add(new int[] { 0, 1, 2, 3, 4, 5 }, 6, new int[] { 0, 1, 2, 3, 4, 5 });
+                Add(new int[] { 0, 1, 2, 3, 4, 5 }, 7, new int[] { 5, 0, 1, 2, 3, 4 });
+                Add(new int[] { 0, 1, 2, 3, 4, 5 }, 8, new int[] { 4, 5, 0, 1, 2, 3 });
+                Add(new int[] { 0, 1, 2, 3, 4, 5 }, 9, new int[] { 3, 4, 5, 0, 1, 2 });
+                Add(new int[] { 0, 1, 2, 3, 4, 5 }, 10, new int[] { 2, 3, 4, 5, 0, 1 });
+                Add(new int[] { 0, 1, 2, 3, 4, 5 }, 11, new int[] { 1, 2, 3, 4, 5, 0 });
+                Add(new int[] { 0, 1, 2, 3, 4, 5 }, 12, new int[] { 0, 1, 2, 3, 4, 5 });
             }
         }
 

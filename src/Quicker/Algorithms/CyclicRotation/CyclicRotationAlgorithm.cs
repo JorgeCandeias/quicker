@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 
 namespace Quicker.Algorithms.CyclicRotation
 {
@@ -12,6 +10,7 @@ namespace Quicker.Algorithms.CyclicRotation
             // validate
             if (input == null) throw new ArgumentNullException(nameof(input));
             if (distance < 0) throw new ArgumentOutOfRangeException(nameof(distance));
+            if (input.Length == 0) return new int[0];
 
             // rotate
             var result = new int[input.Length];
@@ -28,6 +27,7 @@ namespace Quicker.Algorithms.CyclicRotation
             // validate
             if (input == null) throw new ArgumentNullException(nameof(input));
             if (distance < 0) throw new ArgumentOutOfRangeException(nameof(distance));
+            if (input.Length == 0) return new int[0];
 
             // rotate
             var result = new int[input.Length];
@@ -42,6 +42,7 @@ namespace Quicker.Algorithms.CyclicRotation
             // validate
             if (input == null) throw new ArgumentNullException(nameof(input));
             if (distance < 0) throw new ArgumentOutOfRangeException(nameof(distance));
+            if (input.Length == 0) return new int[0];
 
             // rotate
             var size = sizeof(int);
@@ -57,6 +58,7 @@ namespace Quicker.Algorithms.CyclicRotation
             // validate
             if (input == null) throw new ArgumentNullException(nameof(input));
             if (distance < 0) throw new ArgumentOutOfRangeException(nameof(distance));
+            if (input.Length == 0) return new int[0];
 
             // rotate
             var result = new int[input.Length];
@@ -75,8 +77,9 @@ namespace Quicker.Algorithms.CyclicRotation
             // validate
             if (input == null) throw new ArgumentNullException(nameof(input));
             if (distance < 0) throw new ArgumentOutOfRangeException(nameof(distance));
+            if (input.Length == 0) return new int[0];
 
-            // rotate
+            // prepare to rotate
             var result = new int[input.Length];
             var size = Unsafe.SizeOf<int>();
             var diff = distance % input.Length;
