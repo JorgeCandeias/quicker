@@ -81,18 +81,18 @@ namespace Quicker.Algorithms.CyclicRotation
 
             // prepare to rotate
             var result = new int[input.Length];
-            var size = Unsafe.SizeOf<int>();
-            var diff = distance % input.Length;
+            int size = Unsafe.SizeOf<int>();
+            int diff = distance % input.Length;
 
             // pin memory locations
-            using (var target1 = result.AsMemory(diff, input.Length - diff).Pin())
-            using (var slice1 = input.AsMemory(0, input.Length - diff).Pin())
-            using (var target2 = result.AsMemory(0, diff).Pin())
-            using (var slice2 = input.AsMemory(input.Length - diff, diff).Pin())
+            fixed (int* target1 = result.AsSpan(diff, input.Length - diff))
+            fixed (int* slice1 = input.AsSpan(0, input.Length - diff))
+            fixed (int* target2 = result.AsSpan(0, diff))
+            fixed (int* slice2 = input.AsSpan(input.Length - diff, diff))
             {
                 // copy the underlying memory in the array
-                Unsafe.CopyBlock(target1.Pointer, slice1.Pointer, (uint)((input.Length - diff) * size));
-                Unsafe.CopyBlock(target2.Pointer, slice2.Pointer, (uint)(diff * size));
+                Unsafe.CopyBlock(target1, slice1, (uint)((input.Length - diff) * size));
+                Unsafe.CopyBlock(target2, slice2, (uint)(diff * size));
             }
 
             return result;
